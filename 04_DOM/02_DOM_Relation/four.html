@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM | edit/remove </title>
+</head>
+<body style="background-color: #212121; color:#fff">
+    <ul class="language">
+        <li>JavaScript</li>
+    </ul>
+</body>
+<script>
+
+    // create 
+    function addLanguage(langName){
+        const li = document.createElement('li');
+        li.innerHTML = `${langName}`// -->  using this we have to traverse whole tree in DOM to append ---its giving worst complexity
+        document.querySelector('.language').appendChild(li)
+        
+    }
+    addLanguage("Java");
+    addLanguage("SpringBoot");
+
+    function addOptiLanguage(langName){
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(langName)) // this is better approach 
+        document.querySelector('.language').appendChild(li)
+    }
+    addOptiLanguage("Python");
+    addOptiLanguage("Ruby");
+
+    // edit
+
+    // const secondLang = document.querySelector("li:nth-child(2)");
+    
+    // const newli = document.createElement('li')
+    // newli.appendChild(document.createTextNode("Mojo"))
+    // secondLang.replaceWith(newli);
+
+    // edit -- another way
+
+    // const firstLang = document.querySelector("li:first-child")
+    // firstLang.outerHTML = "<li>TypeScript</li>"
+    
+    function editElement(newText,num){
+        const secondLang = document.querySelector(`li:nth-child(${num})`);
+        const newli = document.createElement('li');
+        newli.appendChild(document.createTextNode(`${newText}`))
+        secondLang.replaceWith(newli);
+        
+    }
+    editElement("batman",1);
+    // i created own a function to do this which a user mentioned list no.
+
+    // remove
+    // const lastLang = document.querySelector("li:last-child")
+    // lastLang.remove()
+
+
+    const removeElement = (num)=>{
+        const liToRemove = document.querySelector(`li:nth-child(${num})`);
+        liToRemove.remove();
+    }
+    removeElement(1);
+
+    // create a function for the above remove by own
+
+</script>
+</html>

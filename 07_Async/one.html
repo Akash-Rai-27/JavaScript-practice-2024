@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async Js</title>
+</head>
+<body style="background-color: rgb(33, 111, 111); color: rgb(26, 27, 28);">
+    <h1>2 Project with Async JS </h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    // setTimeout() // method --> calls an api
+    // handler --> just same call back function
+    // setTimeout(function(){
+    //     console.log("underWorld");
+    // },2000); 
+
+    const sayName = function(){
+        console.log("skyworld");
+    }
+
+    const changeText = function(){
+        document.querySelector('h1').innerHTML = "JS in youtube";
+    }
+    const changeme = setTimeout(changeText,2000); 
+
+    document.querySelector("#stop").addEventListener('click',function(){
+        clearTimeout(changeme);
+        console.log("i am batman ");
+    })
+
+    // clearTimeout(changeme);
+
+    
+</script>
+</html>

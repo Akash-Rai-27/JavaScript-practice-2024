@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html Events</title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+    // all  events in JS run sequencially
+    // some exception
+     // we ignore this sequencially in async JS
+
+     // our browser event evoke on activity
+
+    //  document.getElementById('owl').onclick = function(){
+    //     alert("owl bhen ka lawda ")
+    //  } // onclick is not good boc it doesnt give us much information, we should use eventLister
+
+    // attacedEvent --> used before
+    // jQuery      ---> on 
+    
+
+    // document.getElementById('owl').addEventListener('click',function(){
+    //     alert("owl bhen ka lawda"); // better way
+    // })
+
+
+
+    // topic to learn and read
+    // type , timestamp , defaultPrevented, 
+    // target, toElement, srcElement, currentTarget, 
+    // clientX, clientY, screenX, screenY
+    // altkey , ctrlkey, shiftkey, keyCode, 
+//-------------------------------------------------------
+    // document.getElementById('owl').addEventListener('click',function(e){
+    //     console.log(e);
+    // },false); // the value 'fasle'/'true' ---> is know as event propogation
+
+
+
+    // eventPropogation  have 2 context ----> 1> even bubbling
+    //                        2> event capturing
+
+    // In real world market we put eventPropogation as deafult, which is 'false'---> which is known as  event bubbling 
+    // but in some scenerio we may have to used event capturing-->'true'
+
+    // document.getElementById('images').addEventListener('click',function(e){
+    //     console.log("clicked inside the ul")
+    // },false)
+
+
+    // document.getElementById('owl').addEventListener('click',function(e){
+    //     console.log("owl clicked")
+    // },false) // we dont need to write 'false' also, by default it take as fasle
+
+    //output
+//      owl clicked
+//      one.html:99 clicked inside the ul
+
+
+    //bubbling -->'false'
+    // eventPropogation -->means bubbbling up
+    // bubbles --> which goes from down to up 
+    // like wise --> here we clicked at the inner element--which was images, then li ---> then ul,
+    // so what ever element my script is tracking the big elements---> from inside to outside --i.e know as event propogation and it is know has bubbling 
+
+
+    // document.getElementById('images').addEventListener('click',function(e){
+    //     console.log("clicked inside the ul")
+    // },true)
+
+
+    // document.getElementById('owl').addEventListener('click',function(e){
+    //     console.log("owl clicked")
+    // },true)
+    // capturing -- >' true';
+    // capturing goes from top to bottom
+    // first ul --> li then ---> owl ---->
+    
+    // both are okay --->  we have to choose based on the usecase which is required
+
+
+    // sometimes we dont want event bubbling like passing from inside to outsie or vice versa
+    // we want seprate inner element and outer element without bubbling
+
+//     document.getElementById('images').addEventListener('click',function(e){
+//         // console.log("clicked inside the ul")
+//     },false)
+
+
+//     document.getElementById('owl').addEventListener('click',function(e){
+//         // console.log("owl clicked")
+//         e.stopPropagation() // this method will stop the bubbling here only
+//         // event will not go to outside by bubbling now
+//     },false)
+// //----------------------------------------------------------
+
+// preventDeafult
+
+// document.getElementById('google').addEventListener('click',function(e){
+//     e.preventDefault() // prevent the deafult submit or default methods
+//     console.log("google clicked")
+// },false)
+
+//----------------------------------------------------------
+// activity --- project style
+// onclicking any image make the image vanish / or delete it
+
+    document.querySelector('#images').addEventListener('click',function(e){
+        // console.log(e.target); // target specific and return which target is evoking this event
+        // console.log(e.target.parentNode); 
+        // let removeIt = e.target.parentNode;
+        // removeIt.remove(); // one way
+        // removeIt.parentNode.removeChild(removeIt); // another way
+
+        // event spill over
+        
+        // if we click on any li --> it will return its parentNode --> which is ul --> then ul will be removed---all images will be removed--> --which we dont want
+
+        console.log(e.target.tagName);
+        //check
+        if(e.target.tagName === 'IMG'){
+            console.log(e.target.id);// this will give me id
+            let removeIt = e.target.parentNode;
+            removeIt.remove();
+        }
+        
+    },false);
+
+    
+
+</script>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM | nodeList      </title>
+</head>
+<body style="background-color: #212121; color:#fff">
+    
+</body>
+
+<script>
+
+    // create an element
+    const div = document.createElement('div');
+    console.log(div);
+    // add properties into div
+    div.className = "main"
+    div.id = "myId"
+    div.setAttribute("title","generated title")
+    div.style.backgroundColor = "tomato"
+    div.style.padding = "12px"
+    // div.innerText = "BATMAN killing bitches og gothom" // it overwrites the value
+    const addText = document.createTextNode("BATMAN killing bitches of gothom")
+    div.appendChild(addText)
+    //this is will not show as it is created in memory but not attached
+
+    document.body.appendChild(div); // attach it to the body
+
+    // once we created a div we can wrap it into a funtion and change the values passing arguments 
+
+</script>
+
+
+</html>
