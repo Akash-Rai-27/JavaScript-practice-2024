@@ -6,7 +6,7 @@ let repo;
 
 
 // const requestUrl = "https://api.github.com/users/hiteshchoudhary";
-const requestUrl = "https://api.github.com/users/Rahul-7416";
+const requestUrl = "https://api.github.com/users/sugyani15";
 const xhr = new XMLHttpRequest;
 xhr.open('GET',requestUrl);
 
