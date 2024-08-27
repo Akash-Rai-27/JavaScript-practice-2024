@@ -59,7 +59,7 @@ const userJs = {
 
 const mysym = Symbol("key1");
 
-// we cant directly declare Symbol as key lke --> mysym = "i am value" ---> if doing this it is store a string in datatype
+// we cant directly declare Symbol as key like --> mysym = "i am value" ---> if doing this it is store a string in datatype
 
 /*
 console.log(myObj.mysym); // ! it will print i am value but it will a string not Symbol data type

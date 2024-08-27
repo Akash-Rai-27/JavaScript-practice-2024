@@ -1,7 +1,7 @@
 /*
 * 1>  Primitive Datatypes
 ? call by value
-? --> means: the orginal data refernece of memeory is not given, instead a copy is provided and all the changes you do happens in copy
+? --> means: the original data refernece of memeory is not given, instead a copy is provided and all the changes you do happens in copy
 
 -->Number -->(typeof ) number
 -->String -->(typeof ) string

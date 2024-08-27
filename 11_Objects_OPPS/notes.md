@@ -7,7 +7,7 @@ this is programing paradim
 
 ### object 
 - collection of properties and methods
-- toLowerCase
+- e.g toLowerCase
 
 ### why use OOPs
 
@@ -15,16 +15,29 @@ this is programing paradim
 - resuseability
 
 ### parts of OOP
-- object literals
+- object literals --means object
 
 - Constructor function
 - Prototypes
+- Classes
 - Instances (new, this)
 
 ### 4 Pillars 
-- Abstraction
-- Encapsulation
-- Inheritance
-- Polymorphism
+- Abstraction --> hiding details
+- Encapsulation --> wrap up data, 
+- Inheritance --> 
+- Polymorphism --> many forms
+
+use chatgpt for this 4 pillar
 
 
+
+
+
+
+## Prototype
+
+- js default behavior is proto-typle behavior 
+- access upper layer and upper layer (never give up) --> till it gets the null value
+
+- new, this, classes, prototype inheritance, inheritance ---> all this is because of prototype
